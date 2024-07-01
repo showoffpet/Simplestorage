@@ -8,6 +8,10 @@ contract SimpleStorage {
         favouriteColor = _newFavouriteColor;
     }
 
+    function updateFavouriteColor(){
+        
+    }
+
     function getFavouriteColor() public view returns (string memory) {
         return favouriteColor;
     }
