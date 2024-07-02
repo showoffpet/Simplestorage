@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: SEE LICENSE IN LICENSE
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
 contract SimpleStorage {
@@ -8,9 +8,6 @@ contract SimpleStorage {
         favouriteColor = _newFavouriteColor;
     }
 
-    function updateFavouriteColor(){
-        
-    }
 
     function getFavouriteColor() public view returns (string memory) {
         return favouriteColor;

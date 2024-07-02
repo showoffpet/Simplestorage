@@ -18,7 +18,8 @@ const { expect, assert } = require("chai");
         it("should output a favourite Color if set successfully", async () =>{
             await SimpleStorage.connect(user).setFavouriteColor("blue");
             const favColor = await SimpleStorage.getFavouriteColor();
-            expect(favColor).to.be.equal("blue"); 
+            expect(favColor).to.be.equal("blue");
+            expect(favColor).to.be.a("string");
             console.log(favColor);           
         });
       });

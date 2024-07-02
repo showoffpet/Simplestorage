@@ -1,16 +1,22 @@
 const { ethers } = require("hardhat");
+const verify = require("../utils/verify");
 
-const main = async () => {
+const deploy = async () => {
   try {
     const contractFactory = await ethers.getContractFactory("SimpleStorage");
-    const contract = await contractFactory.deploy();
+    const SimpleStorage = await contractFactory.deploy();
     console.log("-----------deploying------------");
-    console.log("Contract Address:", contract.target);
+    console.log("Contract Address:", SimpleStorage.target);
+    if(network.config.chainId === 11155111 && process.env.ETHERSCAN_API_KEY){
+      setTimeout(async () => {
+        await verify(SimpleStorage.target)
+      }, 45000);
+    }
   } catch (error) {
     console.log(error.message);
   }
 };
 
-main();
+deploy();
 
-module.exports = main;
+module.exports = deploy;
